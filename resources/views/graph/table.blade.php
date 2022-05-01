@@ -1,14 +1,14 @@
 <div class="row">
     <table class="table table-borderd table-striped">
         <tr>
-            <th>timestamp</th>
-            <th>ip</th>
-            <th>user</th>
-            <th>download</th>
-            <th>upload</th>
-            <th>ping</th>
-            <th>subnet</th>
-            <th>apname</th>
+            <th>Timestamp</th>
+            <th>IP</th>
+            <th>User</th>
+            <th>Download</th>
+            <th>Upload</th>
+            <th>Ping</th>
+            <th>Subnet</th>
+            <th>AP Name</th>
         </tr>
         @foreach($table as $row)
         <tr>
