@@ -45,7 +45,7 @@
             type: 'pie'
         },
         title: {
-            text: 'Most test by subnet'
+            text: 'Top 10 most test by subnet'
         },
         plotOptions: {
             pie: {

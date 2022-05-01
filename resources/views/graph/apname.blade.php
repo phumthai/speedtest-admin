@@ -1,43 +1,26 @@
 <br>
-    <div id="subnet"></div>
+    <div id="apname"></div>
     <br> 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 
 <script type="text/javascript">
-    let getSubnet = <?php echo json_encode($subnet)?>;
-    let suba = getSubnet.map(function(obj){
-                return obj.subnet;
+    let getAPname = <?php echo json_encode($apname)?>;
+    let apa = getAPname.map(function(obj){
+                return obj.apname;
             })
-    let subb = getSubnet.map(function(obj){
+    let apb = getAPname.map(function(obj){
                 return obj.co;
             })
-    let subnet = [];
-    for(let j=0;j<suba.length;j++){
+    let apname = [];
+    for(let j=0;j<apa.length;j++){
         let obj = new Object();
-        obj.name = suba[j];
-        obj.y  = subb[j];
-        subnet.push(obj);
+        obj.name = apa[j];
+        obj.y  = apb[j];
+        apname.push(obj);
     }
-    console.log(subnet)
+    console.log(apname)
 
-
-    Highcharts.setOptions({
-        colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
-            return {
-                radialGradient: {
-                    cx: 0.5,
-                    cy: 0.3,
-                    r: 0.7
-                },
-                stops: [
-                    [0, color],
-                    [1, Highcharts.color(color).brighten(-0.3).get('rgb')] // darken
-                ]
-            };
-        })
-    });
-
-    Highcharts.chart('subnet', {
+    Highcharts.chart('apname', {
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -45,7 +28,7 @@
             type: 'pie'
         },
         title: {
-            text: 'Most test by subnet'
+            text: 'Top 10 most test by AP name'
         },
         plotOptions: {
             pie: {
@@ -58,8 +41,8 @@
             }
         },
         series: [{
-            name: 'Subnet',
-            data: subnet
+            name: 'APname',
+            data: apname
         }]
     });
 </script>

@@ -47,7 +47,7 @@
         dd.push(b[i])
         data.push(dd)
     }
-    console.log(data)
+    //console.log(data)
 
     Highcharts.chart('container', {
         chart: {

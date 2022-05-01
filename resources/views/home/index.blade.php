@@ -6,8 +6,8 @@
         <h1>Dashboard</h1>
         @include('graph.total')
         <div class="row">
-            <div class="col-4 border-right">@include('graph.subnet')</div>
-            <div class="col-6"><h3>bbbbbb</h3></div>
+            <div class="col-6 border-right">@include('graph.subnet')</div>
+            <div class="col-6 border-right">@include('graph.apname')</div>
         </div>
         @include('graph.table')
         @endauth
