@@ -9,8 +9,8 @@ class TotalChartController extends Controller
 {
     public function index()
     {
-        $total = DB::select('SELECT timestamp,COUNT(*) as co FROM speedtest_users GROUP BY timestamp', array(1));
+        //$total = DB::select('SELECT id,COUNT(*) as co FROM users GROUP BY id');
         $address = '123 Bangkok';
-        return View::make('graph.total', compact('address'));
+        return View('index.home', compact('address'));
     }
 }

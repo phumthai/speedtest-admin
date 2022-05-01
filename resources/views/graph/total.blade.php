@@ -26,15 +26,33 @@
 </head>
 <body>
     <h1>Hello</h1>
-    <!-- <div id="container"></div> -->
+    <div id="container"></div>
     {{$address}}
 </body>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 
 <script type="text/javascript">
-    
+    let countData = <?php echo json_encode($data)?>;
+    let a = countData.map(function(obj){
+                return Date.parse(obj.tt);
+            })
+    let b = countData.map(function(obj){
+                return obj.co;
+            })
+    //let dates = countData[0].timestamp;
+    let data = [];
+    for(let i=0;i<a.length;i++){
+        let dd = []
+        dd.push(a[i])
+        dd.push(b[i])
+        data.push(dd)
+    }
+    console.log(data)
 
     Highcharts.chart('container', {
+        chart: {
+            zoomType: 'x'
+        },
         title: {
             text: 'Total Test'
         },
@@ -43,6 +61,14 @@
             layout: 'vertical',
             align: 'right',
             verticalAlign: 'middle'
+        },
+        xAxis: {
+            type: 'datetime',
+        },
+        yAxis: {
+            title: {
+                text: 'Count'
+            }
         },
         rangeSelector: {
             buttons: [{
@@ -73,8 +99,9 @@
             }
         },
         series: [{
-            name: 'New Users',
-            data: [1,2,3,4,5]
+            name: 'Count',
+            type: 'spline',
+            data: data,
         }],
         responsive: {
             rules: [{

@@ -18,6 +18,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
     Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/totalchart','TotalChartController@index')->name('total.index');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
@@ -41,6 +42,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
 
-    Route::get('/totalchart','TotalChartController@index')->name('total.index');
+    
 });
 
