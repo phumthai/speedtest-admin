@@ -25,9 +25,9 @@
     </style>
 </head>
 <body>
-    <h1>Hello</h1>
+    <br>
     <div id="container"></div>
-    {{$address}}
+    <br> 
 </body>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 

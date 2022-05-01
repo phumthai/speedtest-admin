@@ -4,8 +4,8 @@
     <div class="bg-light p-5 rounded">
         @auth
         <h1>Dashboard</h1>
-        @include('welcome')
         @include('graph.total')
+        @include('graph.table')
         @endauth
 
         @guest
