@@ -27,4 +27,3 @@
         {!! $table->links() !!}
     </div>
 </div>
-    
