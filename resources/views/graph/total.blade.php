@@ -29,7 +29,11 @@
     <div id="container"></div>
     <br> 
 </body>
-<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/stock/highstock.js"></script>
+<script src="https://code.highcharts.com/stock/modules/data.js"></script>
+<script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+<script src="https://code.highcharts.com/stock/modules/accessibility.js"></script>
 
 <script type="text/javascript">
     let countData = <?php echo json_encode($data)?>;
@@ -49,7 +53,7 @@
     }
     //console.log(data)
 
-    Highcharts.chart('container', {
+    Highcharts.stockChart('container', {
         chart: {
             zoomType: 'x'
         },
