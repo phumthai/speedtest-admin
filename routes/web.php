@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Home Routes
      */
+    Route::get('/pagination', 'PaginationController@index');
+    Route::get('/pagination/fetch_data', 'PaginationController@fetch_data');
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('/totalchart','TotalChartController@index')->name('total.index');
 
