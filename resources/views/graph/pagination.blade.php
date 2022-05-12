@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel Live Data Search with Sorting & Pagination using Ajax</title>
+        <title>Speedtest table Search with Sorting & Pagination using Ajax</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link href="{!! url('assets/css/app.css') !!}" rel="stylesheet">
+        <link href="{!! url('assets/bootstrap/css/bootstrap.min.css') !!}" rel="stylesheet">
+        @include('layouts.partials.navbar')
     </head>
 <body>
     <br />
     <div class="container">
-        <h3 align="center">Laravel Live Data Search with Sorting & Pagination using Ajax</h3><br />
+    @auth
+        <h3 align="center">Speedtest table</h3><br />
         <div class="row">
             <div class="col-md-9">
 
@@ -24,19 +26,30 @@
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th class="sorting" data-sorting_type="asc" data-column_name="ip" style="cursor: pointer">ID </th>
+                        <th class="sorting" data-sorting_type="asc" data-column_name="timestamp" style="cursor: pointer">Timestamp </th>
+                        <th class="sorting" data-sorting_type="asc" data-column_name="ip" style="cursor: pointer">IP </th>
+                        <th>Download</th>
+                        <th>Upload</th>
+                        <th>Ping</th>
+                        <th>Jitter</th>
                         <th class="sorting" data-sorting_type="asc" data-column_name="userid" style="cursor: pointer">User </th>
-                        <th>Subnet</th>
+                        <th class="sorting" data-sorting_type="asc" data-column_name="subnet" style="cursor: pointer">Subnet </th>
+                        <th class="sorting" data-sorting_type="asc" data-column_name="apname" style="cursor: pointer">AP Name </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @include('pagination_data')
+                    @include('graph.pagination_data')
                 </tbody>
             </table>
             <input type="hidden" name="hidden_page" id="hidden_page" value="1" />
             <input type="hidden" name="hidden_column_name" id="hidden_column_name" value="id" />
             <input type="hidden" name="hidden_sort_type" id="hidden_sort_type" value="asc" />
         </div>
+    @endauth
+    @guest
+        <h1>Dashboard</h1>
+        <p class="lead">Please login to view the restricted data.</p>
+    @endguest
     </div>
 </body>
 </html>

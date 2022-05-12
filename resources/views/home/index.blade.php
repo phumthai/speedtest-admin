@@ -12,7 +12,7 @@
         <br>
         <div class="row text-center">
             <h3>Average Jumbo Speed</h3>
-            <div class="col-4 border-right">
+            <div class="col-3 border-right">
                 <div class="card-header">
                     Download
                 </div>
@@ -22,7 +22,7 @@
                     @endforeach()
                 </div>
             </div>
-            <div class="col-4 border-right">
+            <div class="col-3 border-right">
                 <div class="card-header">
                     Upload
                 </div>
@@ -32,7 +32,7 @@
                     @endforeach()
                 </div>
             </div>
-            <div class="col-4 border-right">
+            <div class="col-3 border-right">
                 <div class="card-header">
                     Ping
                 </div>
@@ -42,9 +42,21 @@
                     @endforeach()
                 </div>
             </div>
+            <div class="col-3 border-right">
+                <div class="card-header">
+                    Jitter
+                </div>
+                <div class="card-body">
+                    @foreach($Ajitter as $row)
+                    <p>{{ $row->ajitter }} ms</p>
+                    @endforeach()
+                </div>
+            </div>
         </div>
         <br>
-        @include('graph.table')
+        <div class="d-grid gap-2 col-2 mx-auto">
+            <button role="button" class="btn btn-primary" onclick="window.location='{{route('pagination.index')}}'">View Data Table</button>
+        </div>
         @endauth
 
         @guest

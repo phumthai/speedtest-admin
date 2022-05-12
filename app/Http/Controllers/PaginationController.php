@@ -9,8 +9,8 @@ class PaginationController extends Controller
 {
     function index()
     {
-        $data = DB::table('speedtest_users')->orderBy('id', 'asc')->paginate(5);
-        return view('pagination', compact('data'));
+        $data = DB::table('speedtest_users')->orderBy('timestamp', 'asc')->paginate(10);
+        return view('graph.pagination', compact('data'));
     }
 
     function fetch_data(Request $request)
@@ -23,12 +23,13 @@ class PaginationController extends Controller
             $query = str_replace(" ", "%", $query);
             $data = DB::table('speedtest_users')
                 ->where('ip', 'like', '%'.$query.'%')
+                ->orWhere('timestamp', 'like', '%'.$query.'%')
                 ->orWhere('userid', 'like', '%'.$query.'%')
                 ->orWhere('subnet', 'like', '%'.$query.'%')
                 ->orWhere('apname', 'like', '%'.$query.'%')
                 ->orderBy($sort_by, $sort_type)
-                ->paginate(5);
-            return view('pagination_data', compact('data'))->render();
+                ->paginate(10);
+            return view('graph.pagination_data', compact('data'))->render();
         }
     }
 }

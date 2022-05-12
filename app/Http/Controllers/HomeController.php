@@ -22,7 +22,8 @@ class HomeController extends Controller
         $Adownload = DB::table('speedtest_users')->select(DB::raw('ROUND(AVG(dl),2) as adl'))->where('subnet','=','Jumbo wifi')->get();
         $Aupload = DB::table('speedtest_users')->select(DB::raw('ROUND(AVG(ul),2) as aul'))->where('subnet','=','Jumbo wifi')->get();
         $Aping = DB::table('speedtest_users')->select(DB::raw('ROUND(AVG(ping),2) as aping'))->where('subnet','=','Jumbo wifi')->get();
+        $Ajitter = DB::table('speedtest_users')->select(DB::raw('ROUND(AVG(jitter),2) as ajitter'))->where('subnet','=','Jumbo wifi')->get();
         $address = '123 Bangkok';
-        return view('home.index', compact('data','table','subnet','apname', 'Adownload','Aupload','Aping'));
+        return view('home.index', compact('data','table','subnet','apname', 'Adownload','Aupload','Aping', 'Ajitter'));
     }
 }

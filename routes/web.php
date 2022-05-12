@@ -18,10 +18,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     /**
      * Home Routes
      */
-    Route::get('/pagination', 'PaginationController@index');
-    Route::get('/pagination/fetch_data', 'PaginationController@fetch_data');
+    
     Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('/totalchart','TotalChartController@index')->name('total.index');
+    Route::get('/pagination', 'PaginationController@index')->name('pagination.index');
+    Route::get('/pagination/fetch_data', 'PaginationController@fetch_data')->name('pagination.fetchData');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
